@@ -1,4 +1,4 @@
 package com.example.shop.entities;
 
-public class Accessorie {
+public class Accessory {
 }

@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(path = "/shop")
 public class MainController {
-    @GetMapping("/role")
+    @GetMapping("/home")
     public String chooseRole(Model model) {
         model.addAttribute("role");
         return "home";
     }
 
-    @PostMapping("/role")
-    public String register(@RequestParam("role") String role) {
+    @PostMapping("/home")
+    public String chooseRole(@RequestParam("role") String role) {
         if (role.equals("employee")) {
             return "redirect:/employee";
         } else {
@@ -30,12 +30,12 @@ public class MainController {
     @GetMapping("/employee")
     public String signInEmployee(Model model) {
         model.addAttribute("employee", new Employee());
-        return "redirect:/employee/sign-in";
+        return "redirect:/employee/action";
     }
 
     @GetMapping("/customer")
     public String signInCustomer(Model model) {
         model.addAttribute("customer", new Customer());
-        return "redirect:/customer/sign-in";
+        return "redirect:/customer/action";
     }
 }
