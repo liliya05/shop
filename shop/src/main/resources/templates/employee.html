@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Employee</title>
+    <h1>Choose an action</h1>
+    <div class="buttons">
+        <a th:href="@{/shop/employee}">Log in</a><br>
+        <a th:href="@{/shop/employee}">Sign up</a><br>
+    </div>
 </head>
 <body>
 

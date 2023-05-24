@@ -1,6 +1,5 @@
 package com.example.shop.controllers;
 
-import com.example.shop.entities.Customer;
 import com.example.shop.entities.Employee;
 import com.example.shop.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
