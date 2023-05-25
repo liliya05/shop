@@ -1,8 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Sign up employee</title>
+    <h1>Sign up</h1>
+    <div class="form">
+        <form action="#" th:action="@{/employee/sign-up}" th:object="${employee}" method="post">
+            <label>First Name:</label> <input type="text" th:field="*{firstName}"/>
+            <br>
+            <label>Last name:</label> <input type="text" th:field="*{lastName}"/>
+            <br>
+            <label>Password:</label> <input type="password" th:field="*{password}"/>
+            <br>
+            <p></p>
+            <p><input type="submit" value="Sign in"/>
+                <input type="reset" value="Reset"/></p>
+        </form>
+    </div>
 </head>
 <body>
 
