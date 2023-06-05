@@ -36,8 +36,28 @@ public class CustomerController {
     }
 
     @PostMapping("/sign-up")
-    public String signUp(@ModelAttribute("admin") Customer customer) {
+    public String signUp(@ModelAttribute("customer") Customer customer) {
         customerRepository.save(customer);
         return " ";
     }
+
+    @GetMapping("/log-in")
+    public String logIn(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "log-in-customer";
+    }
+
+    @PostMapping("/log-in")
+    public String logIn(@ModelAttribute("customer") Customer customer, Model model) {
+        if (customerRepository.existsByUsername(customer.getUsername())
+                && customerRepository.existsByPassword(customer.getPassword())) {
+            return " ";
+        }
+        else {
+            model.addAttribute("loginStatus", "false");
+            return "log-in-customer";
+        }
+    }
+
+
 }

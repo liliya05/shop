@@ -40,4 +40,21 @@ public class EmployeeController {
         employeeRepository.save(employee);
         return " ";
     }
+
+    @GetMapping("/log-in")
+    public String logIn(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "log-in-employee";
+    }
+
+    @PostMapping("/log-in")
+    public String logIn(@ModelAttribute("employee") Employee employee, Model model) {
+        if (employeeRepository.existsById(employee.getId()) &&
+                employeeRepository.existsByPassword(employee.getPassword())) {
+            return "";
+        } else {
+            model.addAttribute("loginStatus", "false");
+            return "log-in-employee";
+        }
+    }
 }

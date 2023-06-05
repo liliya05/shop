@@ -7,5 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
-    Optional<Customer> findByUsername(String username);
+    boolean existsByPassword(String password);
+    boolean existsById(Integer id);
 }

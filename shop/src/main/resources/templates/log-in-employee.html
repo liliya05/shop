@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Login employee</title>
+    <title>Log in employee</title>
 </head>
 <body>
-
+<h1>Log in</h1>
+<div class="form">
+    <form action="#" th:action="@{/employee/log-in}" th:object="${employee}" method="post">
+        <label>Id:</label> <input type="number" th:field="*{id}"/>
+        <br>
+        <label>Password:</label> <input type="password" th:field="*{password}"/>
+        <br>
+        <p></p>
+        <p>
+            <input type="submit" value="Log in"/>
+            <input type="reset" value="Reset"/>
+        </p>
+        <div th:if="${loginStatus == 'false'}">
+            <p>Invalid employee ID or PASSWORD. Please try again.</p>
+        </div>
+    </form>
+</div>
 </body>
 </html>
